@@ -10,12 +10,24 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <div class="overlay"></div> -->
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ services }}
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Services</h2>
+                <hr class="w-50 mb-1">
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="category-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for category in categories %}
+                        <div class="col-12 text-center">
+                            <a href="">{{ category.friendly_name }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 {% endblock %}
