@@ -5,10 +5,10 @@
                 Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="products-link">
-                <a href="" class="dropdown-item">Shampoos</a>
-                <a href="" class="dropdown-item">Conditioners</a>
-                <a href="" class="dropdown-item ">Colors/Toners</a>
-                <a href="" class="dropdown-item">Masks/oils</a>
+                <a href="{% url 'products' %}?category=shampoos" class="dropdown-item">Shampoos</a>
+                <a href="{% url 'products' %}?category=conditioners" class="dropdown-item">Conditioners</a>
+                <a href="{% url 'products' %}?category=colors_toners" class="dropdown-item ">Colors & Toners</a>
+                <a href="{% url 'products' %}?category=masks_oils" class="dropdown-item">Masks & oils</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
