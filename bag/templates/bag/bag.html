@@ -41,6 +41,7 @@
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">{{ item.product.name }}</p>
+                                        <p class="my-0"><strong>Color: </strong>{% if item.product.has_color %}{{ item.color|upper }}{% else %}N/A{% endif %}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
