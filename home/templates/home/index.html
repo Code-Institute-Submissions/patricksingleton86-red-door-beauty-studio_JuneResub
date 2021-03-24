@@ -11,19 +11,18 @@
 
 {% block content %}
     <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    One stop shop for all your beauty needs!!
-                </h1>
-                <div class="my-5">
+        <div class="row fixed-row-bottom">
+            <div class="col-6 col-md-6 my-auto">
+                <div class="my-5 text-center">
                     <h4>
                         <a href="{% url 'products' %}" class="shop-products-button btn btn-lg rounded-0 text-uppercase py-3">View Products</a>
                     </h4>
                 </div>
-                <div class="my-5">
+            </div>
+            <div class="col-6 col-md-6 my-auto">
+                <div class="my-5 text-center">
                     <h4>
-                        <a href="" class="shop-products-button btn btn-lg rounded-0 text-uppercase py-3">Book Services</a>
+                        <a href="{% url 'services' %}" class="shop-products-button btn btn-lg rounded-0 text-uppercase py-3">Book Services</a>
                     </h4>
                 </div>
             </div>

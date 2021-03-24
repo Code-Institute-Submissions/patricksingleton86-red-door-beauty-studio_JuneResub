@@ -17,11 +17,11 @@
                 Services
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="services-link">
-                <a href="" class="dropdown-item">Hair</a>
-                <a href="" class="dropdown-item">Nails</a>
-                <a href="" class="dropdown-item ">Lashes</a>
-                <a href="" class="dropdown-item ">Tinting</a>
-                <a href="" class="dropdown-item">All Services</a>
+                <a href="{% url 'services' %}?category=hair" class="dropdown-item">Hair</a>
+                <a href="{% url 'services' %}?category=nails" class="dropdown-item">Nails</a>
+                <a href="{% url 'services' %}?category=lashes" class="dropdown-item ">Lashes</a>
+                <a href="{% url 'services' %}?category=tinting" class="dropdown-item ">Tinting</a>
+                <a href="{% url 'services' %}" class="dropdown-item">All Services</a>
             </div>
         </li>
 </div>

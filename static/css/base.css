@@ -10,6 +10,13 @@ body {
     font-family: 'lato';
 }
 
+.fixed-row-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    
+}
+
 /* from Bulma to center font awesome icons */
 .icon {
     align-items: center;
@@ -87,8 +94,9 @@ hr {
 .category-container a {
     font-style: italic;
     font-size: 5vh;
-    color: black;
+    color: #6c757d;
     padding: 3%;
+    margin-top: 3%;
 }
 
 .category-container a:hover {
@@ -123,7 +131,7 @@ hr {
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 140px;
     }
 
     .body {
