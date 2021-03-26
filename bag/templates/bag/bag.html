@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -22,10 +23,6 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-                    {{ bag_items }}
-                    <br>
-                    <br>
-                    {{ request.session.bag }}
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -33,7 +30,7 @@
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
@@ -83,7 +80,7 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_color="{{ item.color }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price }}</p>
+                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -139,11 +136,11 @@
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
-        var csrftoken = "{{ csrf_token }}";
-        var itemId = $(this).attr('.id').split('remove_')[1];
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
         var color = $(this).data('product_color');
-        var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrftoken, 'product_color': color};
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_color': color};
 
         $.post(url, data)
          .done(function() {
