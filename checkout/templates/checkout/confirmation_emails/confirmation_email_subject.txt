@@ -1,0 +1,1 @@
+Red Door Beauty Studio Confirmation for Order Number {{ order.order_number }}
