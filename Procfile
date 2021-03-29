@@ -1,1 +1,1 @@
-web: gunicorn red-door-beauty-studio.wsgi:application
+web: gunicorn red_door.wsgi:application
