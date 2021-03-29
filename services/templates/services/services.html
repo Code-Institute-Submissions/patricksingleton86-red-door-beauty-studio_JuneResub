@@ -2,52 +2,40 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <hr class="w-50 mb-2">
-                <h2 class="logo-font">Services</h2>
-                <hr class="w-50 mb-1">
-            </div>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <hr class="w-50 mb-2">
+            <h2 class="logo-font">Services</h2>
+            <hr class="w-50 mb-1">
         </div>
-        <div class="row">
-            <div class="category-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for category in categories %}
-                        <div class="col text-center text-dark">
-                            <a href="{% url 'services' %}?category={{category.name}}">{{ category.friendly_name }}</a>
-                        </div>
-                    {% endfor %}
+    </div>
+    <div class="row category-container col-10 offset-1">
+        {% for service in services %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0">
+                <div class="card-body pb-0">
+                    <p class="mb-0">{{ service.name }}</p>
                 </div>
-                <hr class="w-50 mt-2 mb-2">
-                <div class="row">
-                    {% for service in services %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ service.name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ service.price }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead mb-0 text-left font-weight-bold">${{ service.price }}</p>
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
