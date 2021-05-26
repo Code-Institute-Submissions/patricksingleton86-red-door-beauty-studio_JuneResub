@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'services',
-    'bookings',
+    'booking',
     'bag',
     'checkout',
     'profiles',
@@ -101,6 +101,9 @@ AUTHENTICATION_BACKENDS = [
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
+
+    # Needed for booking app
+    'booking.auth_backends.BookingIDBackend',
 ]
 
 SITE_ID = 1
