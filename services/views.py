@@ -6,7 +6,7 @@ def all_services(request):
     """ A view to show all services """
 
     services = Service.objects.all()
-    treatment = Treatment.objects.all()
+    treatments = Treatment.objects.all()
     treatment = None
 
     if request.GET:
