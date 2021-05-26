@@ -1,10 +1,10 @@
 from django.db import models
 
 
-class Category(models.Model):
+class Treatment(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'Treatments'
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -18,7 +18,7 @@ class Category(models.Model):
         return self.friendly_name
 
 class Service(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    treatment = models.ForeignKey('Treatment', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 

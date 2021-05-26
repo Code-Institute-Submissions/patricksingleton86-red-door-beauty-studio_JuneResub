@@ -1,17 +1,17 @@
 from django.contrib import admin
-from .models import Service, Category
+from .models import Service, Treatment
 
 # Register your models here.
 class ServiceAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'category',
+        'treatment',
         'price',
     )
 
-    ordering = ('category',)
+    ordering = ('treatment',)
 
-class CategoryAdmin(admin.ModelAdmin):
+class TreatmentAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
@@ -19,4 +19,4 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Treatment, TreatmentAdmin)

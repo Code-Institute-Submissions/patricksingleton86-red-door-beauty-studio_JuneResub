@@ -1,24 +1,24 @@
 from django.shortcuts import render, redirect, reverse
-from .models import Service, Category
+from .models import Service, Treatment
 # Create your views here.
 
 def all_services(request):
     """ A view to show all services """
 
     services = Service.objects.all()
-    categories = Category.objects.all()
-    category = None
+    treatment = Treatment.objects.all()
+    treatment = None
 
     if request.GET:
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            services = services.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+        if 'treatment' in request.GET:
+            treatments = request.GET['treatment'].split(',')
+            services = services.filter(treatment__name__in=treatments)
+            treatments = Treatment.objects.filter(name__in=treatments)
 
     context = {
         'services': services,
-        'categories': categories,
-        'current_categories': categories,
+        'treatments': treatments,
+        'current_treatments': treatments,
     }
 
     return render(request, 'services/services.html', context)
