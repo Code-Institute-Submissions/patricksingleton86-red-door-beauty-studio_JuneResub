@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect, reverse
-from services.models import Service, Treatment
+from django.shortcuts import render
+from .models import Booking
 
 # Create your views here.
 
 def booking(request):
-    """ View to return to index page """
+    booking = Booking.objects.all()
+    context = {
+        'booking': booking
+    }
 
-    return render(request, 'booking/booking.html')
+
+    return render(request, 'booking/booking.html', context)
