@@ -15,7 +15,6 @@ class TreatmentAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
-        'image',
     )
 
 admin.site.register(Service, ServiceAdmin)

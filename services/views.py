@@ -5,13 +5,14 @@ from django.db.models import Q
 
 from .models import Service, Treatment
 from .forms import ServiceForm
+
 # Create your views here.
+
 
 def all_services(request):
     """ A view to show all services """
 
     services = Service.objects.all()
-    treatments = Treatment.objects.all()
     treatments = None
 
     if request.GET:
@@ -22,7 +23,6 @@ def all_services(request):
 
     context = {
         'services': services,
-        'treatments': treatments,
         'current_treatments': treatments,
     }
 
@@ -31,7 +31,7 @@ def all_services(request):
 
 @login_required
 def add_service(request):
-    """ Add a service to the store """
+    """ Add a service to the site """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -62,13 +62,13 @@ def edit_service(request, service_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    service = get_object_or_404(Product, pk=service_id)
+    service = get_object_or_404(Service, pk=service_id)
     if request.method == 'POST':
-        form = ServiceForm(request.POST, request.FILES, instance=product)
+        form = ServiceForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated service!')
-            return redirect(reverse('service_detail', args=[product.id]))
+            return redirect(reverse('services'))
         else:
             messages.error(request, 'Failed to update service. Please ensure the form is valid.')
     else:
@@ -91,7 +91,7 @@ def delete_service(request, service_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    service = get_object_or_404(Service, pk=product_id)
+    service = get_object_or_404(Service, pk=service_id)
     service.delete()
     messages.success(request, 'Service deleted!')
     return redirect(reverse('services'))

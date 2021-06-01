@@ -4,7 +4,11 @@
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col text-center">
+            <hr class="w-50 mb-2">
+            <h2 class="logo-font">Services</h2>
+            <hr class="w-50 mb-1">
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -13,35 +17,101 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
+        <!-- Button trigger modal -->
         <div class="col text-center">
             <hr class="w-50 mb-2">
-            <h2 class="logo-font">Services</h2>
+            <button type="button" class="btn btn-dark btn-lg mb-2" data-toggle="modal" data-target="#exampleModalCenter">
+                Make Reservation
+            </button>
             <hr class="w-50 mb-1">
         </div>
-    </div>
-    <div class="row category-container col-10 offset-1">
-        {% for service in services %}
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card h-100 border-0">
-                <div class="card-body pb-0">
-                    <p class="mb-0">{{ service.name }}</p>
-                </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <div class="row">
-                        <div class="col">
-                            <p class="lead mb-0 text-left font-weight-bold">${{ service.price }}</p>
-                            {% if request.user.is_superuser %}
-                                <small class="ml-3">
-                                    <a href="{% url 'edit_service' service.id %}">Edit</a> | 
-                                    <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
-                                </small>
-                            {% endif %} 
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">For Reservations:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col text-center mt-2 mb-2">
+                                <h5><strong>Call:</strong> 08900000000</h5>
+                            </div>
                         </div>
+                        <hr class="w-25">
+                        <div class="row">
+                            <div class="col text-center mt-2 mb-2">
+                                <h5><strong>Email:</strong> reddoorbeauty@example.com</h5>
+                            </div>
+                        </div>
+                        <hr class="w-25">
+                        <div class="row">
+                            <div class="col text-center mt-2 mb-2">
+                                <h5><strong>Private Message:</strong><a href="https://www.facebook.com/reddoorbeautystudiomallow" class="tooltip-test" title="Tooltip" target="_blank"> Facebook</a> and <a href="https://www.instagram.com/door.red/" class="tooltip-test" title="Tooltip" target="_blank">Instagram</a></h5>
+                            </div>
+                        </div>
+                        <hr class="w-50 mb-1">
+                        <div class="row mt-3">
+                            <div class="col text-center mt-3">
+                                <h5 class="logo-font">Terms and Conditions</h5>
+                                <hr class="w-50 mb-1">
+                            </div>
+                            <div class="col-10 offset-1">
+                                <div class="row mt-1 mb-2">
+                                    <p><strong>Late arrivals:</strong> Please arrive on time for your appointment. We cannot guarantee
+                                        service for late arrivals over 10 minutes.</p>
+                                    <p><strong>Cancellations:</strong> We ask you to notify us at least 24 hours in advance if you are
+                                        unable to keep your appointment.</p>
+                                    <p><strong>Etiquette:</strong> To ensure that the guest can enjoy peaceful experience, we respectfully
+                                        ask all kids to be left at home.</p>
+                                    <p><strong>Payment:</strong> We accept cash and credit card payments. Payments for the service must be
+                                        made before leaving the lounge.</p>
+                                    <p><strong>Refund Policy:</strong> If you are not satisfied with the service you received please notify
+                                        staff immediately and we would like the opportunity for redo. We do not offer refund on services.
+                                    </p>
+                                    <p><strong>Vouchers:</strong> They are valid for 6 months from purchase date.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark btn-lg mb-2" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-{% endblock %}
+    <div class="row">
+        <div class="product-container col-10 offset-1">
+            <div class="row mt-1 mb-2">
+                {% for service in services %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ service.name }}</p>
+                        </div>
+                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">${{ service.price }}</p>
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_service' service.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_service' service.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% endblock %}
