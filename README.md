@@ -1,25 +1,26 @@
 # Red Door Beauty Studio
 
-Site for selling salon quality beuaty products and viewing services provided
+Site for a beauty salon who, due to the lockdowns, have decided to start selling professional quality hair and beauty products.
+It's also an opertunity to increase their online presence which is currently exclusively through social media.
 
 
 ## User Stories
 **As a customer I would like to:**
-* View list of products and Select something to purchase
-* Easily view purchases to Know how much I'm spending
-* View a list of services and info on how to book
-
-**As a user I would like to:**
-* Easily Register, Have a personnal account and view my profile
-* Easily Login & Logout to Access my personnal account info
-* Have personnalized user profile to view order history and save my information
-* Easily identify products by category and price
+* View list of available products
 * Search to find a specific product
+* Easily add to cart and purchase securely
+* View a list of available services and prices
+* Get information on how to book
+* See the quality of the services provided
+
+**As a frequent user I would like to:**
+* Easily Register a personnal account
+* Easily Login & Logout to Access my account
+* Have personnalized user profile to view order history and save my information for faster checkout
 
 **As a store owner I would like to:**
-* Add new products or services
-* Change prices, images & other criteria
-* Remove options no longer available
+* Add, edit or delete products or services as required
+* Add pictures of work to advertise the quality of service provided
 
 
 [Wireframes](media/red-door.pdf)
@@ -33,6 +34,7 @@ Site for selling salon quality beuaty products and viewing services provided
 * Stripe payments
 
 
+
 ## Deployment
 
 Hosted on Heroku from Gitpod using AWS S3 for storage
@@ -40,7 +42,7 @@ Hosted on Heroku from Gitpod using AWS S3 for storage
 
 ## Credits
 
-Content/picture are all from store owner
+Content/pictures are all from store owners/operators
 
 
 ## Acknowledgements

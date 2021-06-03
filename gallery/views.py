@@ -51,17 +51,14 @@ def add_picture(request):
 @login_required
 def edit_picture(request, style_id):
     """ Edit a picture in the gallery """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
 
-    gallery = get_object_or_404(Gallery, pk=style_id)
+    style = get_object_or_404(Style, pk=style_id)
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES, instance=style)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated picture!')
-            return redirect(reverse('gallery'))
+            return redirect('gallery')
         else:
             messages.error(request, 'Failed to update picture. Please ensure the form is valid.')
     else:
@@ -84,8 +81,8 @@ def delete_picture(request, style_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    picture = get_object_or_404(Gallery, pk=style_id)
-    picture.delete()
+    style = get_object_or_404(Style, pk=style_id)
+    style.delete()
     messages.success(request, 'Picture deleted!')
     return redirect(reverse('gallery'))
 
