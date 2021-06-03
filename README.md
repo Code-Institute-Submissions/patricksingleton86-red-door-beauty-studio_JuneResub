@@ -3,6 +3,8 @@
 Site for a beauty salon who, due to the lockdowns, have decided to start selling professional quality hair and beauty products.
 It's also an opertunity to increase their online presence which is currently exclusively through social media.
 
+[Live Site](https://red-door-beauty-studio.herokuapp.com/)
+
 
 ## User Stories
 **As a customer I would like to:**
@@ -22,18 +24,36 @@ It's also an opertunity to increase their online presence which is currently exc
 * Add, edit or delete products or services as required
 * Add pictures of work to advertise the quality of service provided
 
+## Structure
 
 [Wireframes](media/red-door.pdf)
+
 
 ## Features
 
 * Responsive function on mobile, tablet and desktop
 * Clear and simple navigation
-* Create user profile
-* Admin product management
+* Secure Register & Login functionality
+* CRUD functionality for products, services and gallery
 * Stripe payments
 
 
+## Technologies Used
+
+* HTML5
+* CSS3
+* Javascript
+* Bootstrap 4
+* Jquery
+* Django
+* GitHub
+* GitPod
+* Heroku
+* Fontawesome
+* Balsmaiq
+* AllAuth
+* Amazon Web service
+* Stripe payments
 
 ## Deployment
 
