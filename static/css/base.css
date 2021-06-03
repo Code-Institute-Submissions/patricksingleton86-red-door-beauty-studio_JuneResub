@@ -229,7 +229,7 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 12vh;
     }
 }
 
@@ -237,7 +237,7 @@ input[name='q']::placeholder {
 
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 140px;
+        padding-top: 12vh;
     }
 
     .body {

@@ -26,6 +26,12 @@
                                     <img src="{{ style.image.url }}" alt="{{ style.name }}" class="card-img-top img-fluid">
                                 </a>
                             </div>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="{% url 'edit_picture' style.name %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_picture' style.name %}">Delete</a>
+                            </small>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
